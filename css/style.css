@@ -374,8 +374,12 @@ body {
   line-height: 1.4;
   color: #7e7e7e;
 }
-.comments-img {
-  width: 100%;
-  height: auto;
+.comments-img { 
+  margin: 20px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: auto;
+  height: 100%;
   object-fit: cover;
+  padding: 20px;
 }

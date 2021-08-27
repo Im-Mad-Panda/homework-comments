@@ -29,9 +29,7 @@ function renderCardShowcase(cardsDataArr, cardShowcaseEl) {
   function createCardHTML(cardDataObj) {
       
   return `<div class="comments">
-    <img class="comments-img"src="${
-      cardDataObj.img
-    }" width="1" height="1" loading="lazy" decoding="async">
+    <img class="comments-img" src="${cardDataObj.avatar}" width="1" height="1" loading="lazy" decoding="async">
   <div class="comments-content">
     <h2 class="comments-author">${cardDataObj.name}</h2>
     <a class="comments-link" href="#">${cardDataObj.phone}</a>
