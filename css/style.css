@@ -343,10 +343,13 @@ body {
   background-color: #c8f8f6;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
 }
 .comments-content {
-  padding: 20px ;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px ;
 }
 .comments-author {
   font-size: 28px;
@@ -358,7 +361,7 @@ body {
   font-size: 18px;
   line-height: 1.2;
   color: #000000;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 .comments-link {
   font-size: 18px;
@@ -366,8 +369,9 @@ body {
   color: #000000;
   margin-bottom: 15px;
 }
-.comments-link a:hover {
+.comments-link:hover {
   text-decoration: underline;
+  color: #7e7e7e;
 }
 .comments-date{
   font-size: 18px;
@@ -375,6 +379,7 @@ body {
   color: #7e7e7e;
 }
 .comments-img { 
+  background-color: #fff;
   margin: 20px;
   border: 2px solid #000000;
   border-radius: 50%;

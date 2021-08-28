@@ -35,9 +35,7 @@ function renderCardShowcase(cardsDataArr, cardShowcaseEl) {
     <a class="comments-link" href="#">${cardDataObj.phone}</a>
     <p class="comments-text">${cardDataObj.text}
     </p>
-<p class="comments-date">${new Date(
-    cardDataObj.timestamp
-  ).toLocaleDateString()}</p>
+<p class="comments-date">Добавлено: ${new Date(cardDataObj.date).toLocaleString()}</p>
   </div>
-  </div> `
+  </div> `;
 }
