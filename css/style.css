@@ -321,17 +321,33 @@ body {
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 15px;
-  background-color: #000000;
+  background-color: #e6e6e6;
 }
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
-.nav-form {
-  
+
+.nav-form > input{
+  padding: 10px 10px;
+border: 0.8px solid #000000;
+border-radius: 8px;
+}
+.button-serch{
+  border: 2px solid rgb(0, 0, 0);
+  color: #fff;
+background-color: #408edd;
+  text-shadow: 0.2px 0.2px 0px, -0.2px -0.2px 0px;    
+    padding: 1px 10px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 30px;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+.button-serch:hover{
+background-color: #007ffd;
 }
 /*=====================HEADER STYLES END======================*/
 .showcase{
@@ -364,14 +380,14 @@ body {
   margin-bottom: 40px;
 }
 .comments-link {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
-  color: #000000;
+  color: #535353;
   margin-bottom: 15px;
 }
 .comments-link:hover {
   text-decoration: underline;
-  color: #7e7e7e;
+  color: #000000;
 }
 .comments-date{
   font-size: 18px;
