@@ -5,9 +5,7 @@ const searchFormEl = document.getElementById('searchForm')
 
 searchFormEl.addEventListener('submit', event => {
   event.preventDefault()
-  // console.log(event.target);
-  // console.log(event.target.search);
-  // console.log(event.target.search.value);
+
   const query = event.target.search.value.trim().toLowerCase().split(' ').filter(word => !!word)
   console.log(query);
   const searchFields = ["name", "phone", "text"]
