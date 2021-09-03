@@ -1,11 +1,15 @@
 const comments = JSON.parse(DATA);
+console.log(comments);
 const showcaseEl = document.getElementById("showcase");
 const searchFormEl = document.getElementById('searchForm')
 
+const smsCounterAllEl = document.getElementById('smsCounterAll')
+const smsCounterUnseenEl = document.getElementById('smsCounterUnseen')
+
+renderCardShowcase(comments, showcaseEl);
 
 searchFormEl.addEventListener('submit', event => {
   event.preventDefault()
-
   const query = event.target.search.value.trim().toLowerCase().split(' ').filter(word => !!word)
   console.log(query);
   const searchFields = ["name", "phone", "text"]
@@ -17,42 +21,41 @@ searchFormEl.addEventListener('submit', event => {
     })
   })
   console.table(filteredСomments);
+  renderCardShowcase(filteredСomments, showcaseEl);
 })
 
-renderCardShowcase(comments, showcaseEl);
+
 
 function renderCardShowcase(cardsDataArr, cardShowcaseEl) {
-    cardShowcaseEl.innerHTML = createCardShowcaseHTML(cardsDataArr).join("");
-  }
-  
-  function createCardShowcaseHTML(cardsDataArr) {
-    return cardsDataArr.map((cardDataObj) => createCardHTML(cardDataObj));
-  }
+  smsCounterAllEl.textContent = cardsDataArr.length
+  smsCounterUnseenEl.textContent = cardsDataArr.filter(cardDataObj => !cardDataObj.seen).length
+  cardsDataArr.sort((a, b) => a.seen - b.seen || b.date - a.date)
+  cardShowcaseEl.innerHTML = createCardShowcaseHTML(cardsDataArr).join("");
+}
 
-// console.log (createCardHTML(
-// {
-//     "id": 1,
-//     "phone": "+63 (924) 979-2252",
-//     "name": "Guss Marvelley",
-//     "text": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
-//     "avatar": "https://robohash.org/repellendusimpeditnisi.png?size=50x50&set=set1",
-//     "date": "1609595510000",
-//     "seen": false
-// }
-// ));
+function createCardShowcaseHTML(cardsDataArr) {
+  return cardsDataArr.map((cardDataObj) => createCardHTML(cardDataObj));
+}
 
-  function createCardHTML(cardDataObj) {
-      
-  return `<div class="comments">
+
+function createCardHTML(cardDataObj) {
+
+  return `<div class="comments ${cardDataObj.seen ? 'seen' : ''}">
     <img class="comments-img" src="${cardDataObj.avatar}" alt="${cardDataObj.name}" width="1" height="1" loading="lazy" decoding="async">
-  <div class="comments-content">
+    <div class="comments-content">
     <h2 class="comments-author">${cardDataObj.name}</h2>
-    <a class="comments-link" href="#">Тел: ${cardDataObj.phone}</a>
+    <a class="comments-link" href="tel:${cardDataObj.phone}">Тел: ${cardDataObj.phone}</a>
     <p class="comments-text">${cardDataObj.text}
     </p>
-<p class="comments-date">Добавлено: ${new Date(cardDataObj.date).toLocaleString()}</p>
+  <p class="comments-date">Добавлено: ${new Date(cardDataObj.date).toLocaleString()}</p>
   </div>
   </div> `;
 }
 
 
+
+
+// const arr = [1,2,1,6,4,4,24,4,654,57,5,45,98,87,9]
+
+// const newArr = arr.filter(num => num > 10)
+// console.log(newArr);
