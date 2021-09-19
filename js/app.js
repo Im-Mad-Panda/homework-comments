@@ -2,7 +2,6 @@ const comments = JSON.parse(DATA);
 console.log(comments);
 const showcaseEl = document.getElementById("showcase");
 const searchFormEl = document.getElementById("searchForm");
-
 const smsCounterAllEl = document.getElementById("smsCounterAll");
 const smsCounterUnseenEl = document.getElementById("smsCounterUnseen");
 
@@ -10,12 +9,11 @@ renderCardShowcase(comments, showcaseEl);
 
 
 
-
 showcaseEl.addEventListener('click', e => {
   const messageEl = e.target.closest('.comments')
   if (messageEl) {
     const messageId = messageEl.dataset.id
-    const messageIdx = comments.findIndex(comment => comment.id == messageId);
+    const messageIdx = comments.findIndex(comment => comment.id == messageId)
     if (messageIdx !== -1) {
       const message = comments[messageIdx]
       if (message.seen) {
