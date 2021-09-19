@@ -405,9 +405,52 @@ button {
   margin: 20px;
   border: 2px solid #000000;
   border-radius: 50%;
-  width: auto;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   padding: 20px;
 }
 /*=====================MAIN STYLES END======================*/
+
+.get-result{
+  padding: 50px;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 40px;
+}
+.get-btn{
+  border: 2px solid;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 28px;
+}
+.get-btn:hover{
+  text-decoration: underline;
+}
+.get-btn[disabled]{
+  color: gray;
+  cursor: initial;
+}
+.get-btn[disabled]:hover{
+  text-decoration: none;
+}
+.wait-icon{
+  display: none;
+}
+.wait-icon.show{
+  display: inline-flex;
+}
+.result{
+  font-size: 60px;
+  font-weight: bold;
+}
+.result.good{
+  color: green;
+}
+.result.bad{
+  color: rgb(133, 0, 0);
+}
