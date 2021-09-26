@@ -2,19 +2,16 @@ const comments = JSON.parse(DATA);
 console.log(comments);
 const showcaseEl = document.getElementById("showcase");
 const searchFormEl = document.getElementById('searchForm')
-
 const smsCounterAllEl = document.getElementById('smsCounterAll')
 const smsCounterUnseenEl = document.getElementById('smsCounterUnseen')
 
-
-// while (performance.now() - 10000) {}
 
 renderCardShowcase(comments, showcaseEl);
 
 
 
 
-showcaseEl.addEventListener('dblclick', e => {
+showcaseEl.addEventListener('click', e => {
   const messageEl = e.target.closest('.comments')
   if (messageEl) {
     const messageId = messageEl.dataset.id
@@ -32,20 +29,15 @@ showcaseEl.addEventListener('dblclick', e => {
 })
 
 
-
-
-
-
-
 searchFormEl.addEventListener('submit', event => {
   event.preventDefault()
   const query = event.target.search.value.trim().toLowerCase().split(' ').filter(word => !!word)
   console.log(query);
   const searchFields = ["name", "phone", "text"]
-  const filteredСomments = comments.filter(comments => {
+  const filteredСomments = comments.filter(comment => {
     return query.every(word => {
       return searchFields.some(field => {
-        return String(comments[field]).toLowerCase().includes(word)
+        return String(comment[field]).toLowerCase().includes(word)
       })
     })
   })
@@ -134,12 +126,6 @@ function createCardHTML(cardDataObj) {
 //     }
 //   }, 500);
 // }
-
-
-
-
-
-
 
 
 getBtn.addEventListener('click', e => {
